@@ -1,0 +1,39 @@
+{
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ],
+    "rootDir": "src/",
+    "testRegex": "(/__tests__/.*|(\\\\.|/)(test|spec))\\\\.(jsx?|tsx?)$",
+    "transform": {
+      "^.+\\\\.tsx?$": "ts-jest"
+    },
+    "testURL": "http://localhost",
+    "setupFiles": [
+      "../config_tests.ts"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "output": "reports/junit.xml"
+        }
+      ]
+    ],
+    "coverageDirectory": "../reports"
+  },
+  "pre-push": [
+    "lint",
+    "test"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "serve": "node dist/src/server.js",
+    "start": "nodemon",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src/**",
+    "test": "jest"
+  }
+}
