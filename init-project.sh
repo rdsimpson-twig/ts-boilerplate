@@ -11,9 +11,6 @@ nvm install --lts
 nvm use --lts
 node -v > .nvmrc
 
-# copy config files
-cp -a $SCRIPT_DIR/config/. $PROJECT_DIR
-
 # set up npm project
 npm init
 npm install yarn -g
@@ -25,6 +22,9 @@ yarn add nodemon prettier eslint jest jest-junit ts-jest \
         eslint-plugin-prettier -D
 
 yarn add ts-node @types/node typescript pre-push
+
+# copy config files
+cp -a $SCRIPT_DIR/config/. $PROJECT_DIR
 
 # Merge the package.json modifier (scripts and tooling config)
 PACKAGE=$(jq -s '.[0] * .[1]' $PROJECT_DIR/package.json $SCRIPT_DIR/package-modifiers.json)
