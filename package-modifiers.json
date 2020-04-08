@@ -11,9 +11,6 @@
       "^.+\\\\.tsx?$": "ts-jest"
     },
     "testURL": "http://localhost",
-    "setupFiles": [
-      "../config_tests.ts"
-    ],
     "reporters": [
       "default",
       [
